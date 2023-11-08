@@ -1,20 +1,16 @@
 
 # Voca
 
-(__TODO__: a brief one or two paragraph, high-level description of your project)
+Learning and practicing vocabulary (especially for complex languages like Chinese or Arabic) is way too boring and difficult. It gets especially tiring doing it alone. Voca gamifies your vocabulary practice by yourself or with friends, with any list of your choice!
 
-Learning and practicing vocabulary is way too boring and difficult, and it gets tiring doing it alone. Voca helps you practice your vocabulary by yourself or with friends, with any list of your choice!
-
-Users can register, log in, upload or delete lists of vocabulary. They can choose to play as either singleplayer or multiplayer, or with or without time as a factor. They can view leaderboards and high scores for each vocabulary list, and they can also 
+Users can register, log in, upload or delete lists of vocabulary. They can choose to play as either singleplayer or multiplayer, or with or without time as a factor. They can also view leaderboards and high scores for each vocabulary list so tha
 
 ## Data Model
-
-(__TODO__: a description of your application's data and their relationships to each other)
 
 The application will store Users and Lists of Vocabulary with leaderboards and items
 
 * users can have multiple lists (via references)
-* each list can have multiple items (by embedding)
+* each list can have multiple items (by embedding) and a leaderboard of top 5 user high scores
 
 An Example User:
 
@@ -89,7 +85,7 @@ An Example List with Items:
 
 ![1698879560119](image/README/1698879560119.png)
 
-/add - add a list, will be validated
+/add - add a list, input will be validated
 
 ![1698881299520](image/README/1698881299520.png)
 
