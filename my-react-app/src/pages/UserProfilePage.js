@@ -1,12 +1,11 @@
-// pages/UserProfile.js
+// pages/UserProfilePage.js
 import React from 'react';
-import { Link } from 'react-router-dom';
-import UserProfile from '../components/UserProfilePage.js';
 
 const UserProfilePage = ({ username }) => {
   return (
     <div>
-      <UserProfile/>
+      <h2>User Profile Page</h2>
+      <p>Welcome, {username}!</p>
     </div>
   );
 };

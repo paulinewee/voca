@@ -1,6 +1,6 @@
 // App.js
 import React, { useState } from 'react';
-import { Router, Route, Routes, Link, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage.js';
 import RegisterPage from './pages/RegisterPage.js';
 import HomePage from './pages/HomePage.js';
@@ -57,27 +57,20 @@ function App() {
           </ul>
         </nav>
 
+        {/* Routes */}
         <Routes>
-          <Route path="/login">
-            {loggedInUser ? <Navigate to="/home" /> : <LoginPage onLogin={handleLogin} />}
-          </Route>
-          <Route path="/register">
-            {loggedInUser ? <Navigate to="/home" /> : <RegisterPage onRegister={handleRegister} />}
-          </Route>
-          <Route path="/home">
-            {loggedInUser ? <HomePage /> : <Navigate to="/login" />}
-          </Route>
-          <Route path="/user-profile">
-            {loggedInUser ? <UserProfilePage username={loggedInUser} /> : <Navigate to="/login" />}
-          </Route>
-          <Route path="/add-list">
-            {loggedInUser ? <AddListPage onAddList={handleAddList} /> : <Navigate to="/login" />}
-          </Route>
-          <Route path="/game">
-            {loggedInUser ? <GamePage /> : <Navigate to="/login" />}
-          </Route>
-          <Navigate from="/" to="/home" />
+          <Route path="/login" element={loggedInUser ? <Navigate to="/home" /> : <LoginPage onLogin={handleLogin} />} />
+          <Route path="/register" element={loggedInUser ? <Navigate to="/home" /> : <RegisterPage onRegister={handleRegister} />} />
+          <Route path="/home" element={loggedInUser ? <HomePage /> : <Navigate to="/login" />} />
+          <Route path="/user-profile" element={loggedInUser ? <UserProfilePage username={loggedInUser} /> : <Navigate to="/login" />} />
+          <Route path="/add-list" element={loggedInUser ? <AddListPage onAddList={handleAddList} /> : <Navigate to="/login" />} />
+          <Route path="/game" element={loggedInUser ? <GamePage /> : <Navigate to="/login" />} />
         </Routes>
+
+        {/* Global Redirect */}
+        <Navigate from="/" to="/home" />
+
+
       </div>
     </Router>
   );

@@ -10,4 +10,4 @@ const UserProfilePage = ({ username }) => {
   );
 };
 
-export default UserProfile;
+export default UserProfilePage;
