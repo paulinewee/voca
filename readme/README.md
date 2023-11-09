@@ -1,9 +1,8 @@
-
 # Voca
 
 Learning and practicing vocabulary (especially for complex languages like Chinese or Arabic) is way too boring and difficult. It gets especially tiring doing it alone. Voca gamifies your vocabulary practice by yourself or with friends, with any list of your choice!
 
-Users can register, log in, upload or delete lists of vocabulary. They can choose to play as either singleplayer or multiplayer, or with or without time as a factor. They can also view leaderboards and high scores for each vocabulary list so tha
+Users can register, log in, upload or delete lists of vocabulary. They can choose to play as either singleplayer or multiplayer, or with or without time as a factor. They can also view leaderboards and high scores for each vocabulary list.
 
 ## Data Model
 
@@ -44,7 +43,6 @@ An Example List with Items:
 }
 ```
 
-
 ## [Link to Commented First Draft Schema](db.mjs)
 
 [Link to Commented First Draft Schema](db.mjs)
@@ -80,8 +78,6 @@ An Example List with Items:
 ![1698879497004](image/README/1698879497004.png)
 
 /results - game results, scores etc updated in database
-
-
 
 ![1698879560119](image/README/1698879560119.png)
 
