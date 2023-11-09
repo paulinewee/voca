@@ -3,7 +3,7 @@ import path from 'path'
 import { fileURLToPath } from 'url';
 
 import db from './db.mjs';
-const User = db.model('User');
+const User = db .model('User');
 const List = db.model('List');
 
 const app = express();
