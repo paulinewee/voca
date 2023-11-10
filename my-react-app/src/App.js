@@ -7,6 +7,10 @@ import HomePage from './pages/HomePage.js';
 import UserProfilePage from './pages/UserProfilePage.js';
 import AddListPage from './pages/AddListPage.js';
 import GamePage from './pages/GamePage.js';
+import Form from './components/Form';
+import './App.css';  // Adjust the path based on your file structure
+
+
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(null);
@@ -27,8 +31,12 @@ function App() {
   };
 
   return (
+
     <Router>
-      <div>
+      <div className="main-container">
+        <h1>Voca: Vocabulary Games with Friends</h1>
+
+
         <nav>
           <ul>
             <li>
@@ -37,6 +45,9 @@ function App() {
             <li>
               <Link to="/user-profile">User Profile</Link>
             </li>
+            {/* <li>
+              <Link to="/form">Form</Link>
+            </li> */}
             <li>
               <Link to="/add-list">Add List</Link>
             </li>
@@ -57,6 +68,10 @@ function App() {
           </ul>
         </nav>
 
+        <h2>Add your own Vocabulary List</h2>
+        <p>Comma Separated Values</p>
+        <Form/>
+
         {/* Routes */}
         <Routes>
           <Route path="/login" element={loggedInUser ? <Navigate to="/home" /> : <LoginPage onLogin={handleLogin} />} />
@@ -64,6 +79,7 @@ function App() {
           <Route path="/home" element={loggedInUser ? <HomePage /> : <Navigate to="/login" />} />
           <Route path="/user-profile" element={loggedInUser ? <UserProfilePage username={loggedInUser} /> : <Navigate to="/login" />} />
           <Route path="/add-list" element={loggedInUser ? <AddListPage onAddList={handleAddList} /> : <Navigate to="/login" />} />
+          {/* <Route path="/form" element={loggedInUser ? <Form /> : <Navigate to="/form" />} /> */}
           <Route path="/game" element={loggedInUser ? <GamePage /> : <Navigate to="/login" />} />
         </Routes>
 
@@ -75,5 +91,6 @@ function App() {
     </Router>
   );
 }
+
 
 export default App;
