@@ -33,7 +33,7 @@ function App() {
 
     <Router>
       <div className="main-container text-center">
-        <h4 className="heading">voca: word games with friends</h4>
+        <h4 className="heading text-3xl">voca: word games with friends</h4>
 
         <Routes>
           <Route path="/" element={loggedInUser ? <Navigate to="/home" /> : <Navigate to="/login" />}/>

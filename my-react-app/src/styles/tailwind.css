@@ -1,7 +1,14 @@
 /* src/styles/tailwind.css */
+<<<<<<< HEAD
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+=======
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+>>>>>>> 8420703430ffb7c3505e9f93cdc6e685db5730cd
 
 body {
   margin: 0;
