@@ -11,7 +11,6 @@ import UserProfilePage from './pages/UserProfilePage.js';
 import AddListPage from './pages/AddListPage.js';
 import GamePage from './pages/GamePage.js';
 
-
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(null);
 
@@ -37,6 +36,7 @@ function App() {
         <h4 className="heading">voca: word games with friends</h4>
 
         <Routes>
+          <Route path="/" element={loggedInUser ? <Navigate to="/home" /> : <Navigate to="/login" />}/>
           <Route path="/login" element={loggedInUser ? <Navigate to="/home" /> : <LoginPage onLogin={handleLogin} />} />
           <Route path="/register" element={loggedInUser ? <Navigate to="/home" /> : <RegisterPage onRegister={handleRegister} />} />
           <Route path="/home" element={loggedInUser ? <HomePage /> : <Navigate to="/login" />} />

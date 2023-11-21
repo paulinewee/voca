@@ -62,6 +62,7 @@ app.get('/api/lists', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
 // POST route for adding a new list
 app.post('/api/list', async (req, res) => {
   try {
@@ -73,24 +74,13 @@ app.post('/api/list', async (req, res) => {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    // Split the string into pairs based on ','
-    const pairs = items.split(', ');
-
-    // Create a list of objects from the pairs
-    const itemList = pairs.map(pair => {
-      // Split each pair into name and definition based on ':'
-      const [itemName, itemDef] = pair.split(':').map(part => part.trim());
-      // Return an object with name and def properties
-      return { name: itemName, def: itemDef };
-    });
-
     // Create a new instance of the List model
     const newList = new List({
       id,
       language,
       name,
       difficulty,
-      itemList,
+      items: items, // Use the array directly
     });
 
     // Save the document to the database
@@ -99,11 +89,13 @@ app.post('/api/list', async (req, res) => {
     // Respond with the saved list and no error
     res.status(201).json({ list: newList, error: null });
   } catch (error) {
-    // Respond with an error if there's an exception
+    // Respond with an erroxr if there's an exception
     console.error('Error saving list:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+
 
 // Start the server
 app.listen(port, () => {

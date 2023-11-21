@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const History = () => {
+const HistList = () => {
   const [lists, setLists] = useState([]);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const History = () => {
   }, []);
 
   return (
-    <div className='histlist'>
+    <div className="histlist">
       {lists.length === 0 ? (
         <p>No lists available.</p>
       ) : (
@@ -27,17 +27,7 @@ const History = () => {
           {lists.map((list) => (
             <li key={list._id} className="hl-entry">
               <h4>{list.language} {list.name}</h4>
-
-              <p>ID: {list.id}</p>
               <p>Difficulty: {list.difficulty}</p>
-              <p>Items:</p>
-              <ul>
-                {list.items.map((item, index) => (
-                  <li key={index}>
-                    <strong>{item.name}:</strong> {item.def}
-                  </li>
-                ))}
-              </ul>
             </li>
           ))}
         </ul>
@@ -46,4 +36,4 @@ const History = () => {
   );
 };
 
-export default History;
+export default HistList;
