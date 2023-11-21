@@ -1,13 +1,16 @@
 // App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
+
+import './styles/tailwind.css';
+
 import LoginPage from './pages/LoginPage.js';
 import RegisterPage from './pages/RegisterPage.js';
 import HomePage from './pages/HomePage.js';
 import UserProfilePage from './pages/UserProfilePage.js';
 import AddListPage from './pages/AddListPage.js';
 import GamePage from './pages/GamePage.js';
-import tailwind from './styles/tailwind.css';
+
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(null);
@@ -30,8 +33,8 @@ function App() {
   return (
 
     <Router>
-      <div className="main-container">
-        <h1>voca: word games with friends</h1>
+      <div className="main-container text-center">
+        <h4 className="heading">voca: word games with friends</h4>
 
         <Routes>
           <Route path="/login" element={loggedInUser ? <Navigate to="/home" /> : <LoginPage onLogin={handleLogin} />} />
