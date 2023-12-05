@@ -23,7 +23,7 @@ const History = () => {
       {lists.length === 0 ? (
         <p>No lists available.</p>
       ) : (
-        <ul className="flex flex-col gap-5 m-0 p-0">
+        <ul className="flex flex-col gap-5 m-0 p-0 ">
           {lists.map((list) => (
             <li key={list._id} className="flex flex-col gap-1 border border-gray-300 p-4">
               <h4 className="text-lg font-semibold">{list.language} {list.name}</h4>

@@ -3,6 +3,8 @@
 const express = require('express');
 const router = express.Router();
 const cors = require('cors');
+const {User, List} = require('../db');
+
 
 // Example in-memory data store
 let formDataStore = [];
@@ -46,5 +48,27 @@ router.delete('/deleteData/:id', function(req, res, next) {
   res.json({ message: 'Data deleted successfully', deletedId: id });
 });
 
+
+router.post('/api/register', async (req, res, next) => {
+  const { username, password } = req.body;
+  try {
+    // Check if the username already exists
+    const existingUser = await User.findOne({ username });
+    if (existingUser) {
+      return res.status(400).json({ error: 'Username already exists' });
+    }
+
+    // Create a new user
+    const newUser = new User({ username, password });
+
+    // Save the user to the database
+    await newUser.save();
+
+    res.json({ user: newUser, message: 'Registration successful' });
+  } catch (error) {
+    console.error('Error during registration:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 module.exports = router;

@@ -3,7 +3,7 @@
 @import 'tailwindcss/utilities';
 
 button {
-  @apply bg-blue-600 text-white font-bold py-2 px-4 mb-5 mt-5 rounded;
+  @apply bg-blue-600 text-white font-bold py-2 px-4 mb-5 mt-5 rounded z-50;
 }
 
 h2 {
@@ -25,4 +25,8 @@ a {
 input[type="text"],
 input[type="password"] {
   @apply shadow border rounded w-full py-2 px-3 text-gray-700;
+}
+
+button, [type='button'], [type='reset'], [type='submit'] {
+  @apply bg-blue-600
 }

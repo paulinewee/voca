@@ -1,21 +1,29 @@
 // db.mjs
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const mongoSanitize = require('mongo-sanitize');
+
 
 dotenv.config();
 
 //user
 const userSchema = new mongoose.Schema({
-  username: String,
+  username: {
+    type: String,
+    set: (value) => mongoSanitize.sanitize(value), // Sanitize the username input
+    unique: true, // Ensure uniqueness
+    required: true, // Make the username required
+  },
   password: String,
   lists: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'List' // 'List' should match the name of the model you're referencing
   }],
-  theme: String,
-  color: String
+  color: {
+    type: String,
+    default: "blue",
+  },
 });
-
 //list
 const listSchema = new mongoose.Schema({
   id: Number,

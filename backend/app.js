@@ -7,6 +7,8 @@ const mongoose = require('mongoose');
 const routes = require('./routes');
 const bcrypt = require('bcrypt');
 const cors = require('cors');
+const mongoSanitize = require('mongo-sanitize');
+
 
 const {User, List} = require('./db');
 
@@ -96,7 +98,6 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-
 // POST route for registration
 app.post('/api/register', async (req, res) => {
   try {
@@ -123,6 +124,23 @@ app.post('/api/register', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+app.post('/api/updateColor', async (req, res) => {
+  try {
+    const { color } = req.body;
+    console.log("IMSFERF")
+
+    // Update the user's color property in the database
+    await User.findByIdAndUpdate(userId, { color });
+
+    // Respond with a success message
+    res.json({ success: true });
+  } catch (error) {
+    console.error('Error updating color:', error);
+    res.status(500).json({ success: false, error: 'Internal server error' });
+  }
+});
+
 
 // Start the server
 app.listen(port, () => {
