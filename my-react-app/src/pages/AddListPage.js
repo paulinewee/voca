@@ -21,7 +21,7 @@ const AddListPage = ({ onAddList }) => {
     <div>
       <Nav/>
       <Form onListSubmitted={fetchLists}/>
-      <h2>Your Lists</h2>
+      <h2 className="text-xl font-semibold pt-4 pb-4">Your Lists</h2>
       <History lists={lists}/>
     </div>
   );

@@ -5,9 +5,29 @@ const RegistrationForm = ({ onRegister }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleRegister = () => {
-    // Add registration logic here
-    onRegister(username, password);
+  const handleRegister = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: username,
+          password: password,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        onRegister(data.user);
+      } else {
+        console.error('Registration failed');
+        window.alert('Registration failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error during registration:', error);
+    }
   };
 
   return (

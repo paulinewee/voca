@@ -1,7 +1,8 @@
 // routes/index.js
 
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const cors = require('cors');
 
 // Example in-memory data store
 let formDataStore = [];
@@ -44,5 +45,6 @@ router.delete('/deleteData/:id', function(req, res, next) {
 
   res.json({ message: 'Data deleted successfully', deletedId: id });
 });
+
 
 module.exports = router;

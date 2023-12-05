@@ -45,27 +45,27 @@ const Form = ({ onListSubmitted }) => {
   };
 
 return (
-  <div>
+  <div className="flex flex-col border-black	">
     <h2>Add your own vocabulary list</h2>
     <form onSubmit={handleSubmit}>
       <label>
         ID:
-        <input type="text" name="id" className="input-box" onChange={handleChange} required />
+        <input type="text" name="id" className="w-full h-70" onChange={handleChange} required />
       </label>
 
       <label>
         Language:
-        <input type="text" name="language" className="input-box" onChange={handleChange} required />
+        <input type="text" name="language" className="w-full h-70" onChange={handleChange} required />
       </label>
 
       <label>
         Name:
-        <input type="text" name="name" className="input-box" onChange={handleChange} required />
+        <input type="text" name="name" className="w-full h-70" onChange={handleChange} required />
       </label>
 
       <label>
         Difficulty:
-        <input type="text" name="difficulty" className="input-box" onChange={handleChange} required />
+        <input type="text" name="difficulty" className="w-full h-70" onChange={handleChange} required />
       </label>
 
       <label>
@@ -73,7 +73,7 @@ return (
         <input
           type="text"
           name="items"
-          className="input-box"
+          className="w-full h-70"
           placeholder="word: definition, word: definition, word: definition"
           onChange={handleItemsChange}
           required

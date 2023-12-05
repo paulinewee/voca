@@ -18,8 +18,6 @@ An Example User:
   username: "paulinewee",
   hash: // a password hash,
   lists: // an array of references to List documents
-  color: //color preference for customization
-  theme: //theme preference for customization
 }
 ```
 
@@ -109,10 +107,10 @@ Voca sitemap
 
 * (3 points) Perform client side form validation using custom JavaScript or JavaScript **library**
 
-  * I will validate the input of the forms by checking if they're the correct language or comma-separated-value format
+  * I will validate the input of the forms by checking if they're in the right comma-separated-value format
 * (2 points) Use a CSS framework or UI toolkit, use a reasonable of customization of the framework (don't just use stock Bootstrap - minimally configure a theme):
 
-  * I will use [tailwind.css](https://tailwindcss.com/) and design custom themes that the user can choose from
+  * I will use [tailwind.css](https://tailwindcss.com/) to design the application
 * (6 points) Use a front-end framework
 
   * I will most likely use [Next.js](https://nextjs.org/) as my frontend
@@ -120,8 +118,6 @@ Voca sitemap
 * (1 - 6 points) Use a **client-side** JavaScript library or module that we did not cover in class (not including any from other requirements)
 
   * I will use sockets to implement the multiplayer portion of the website
-  * I want to make a version of the game where you can play using the p5.js ML Posenet (so that instead of clicking to make your choice, you wave your hand and your camera registers its position)
-    * I've played around with this before and it might be doable, but I will see whether time permits for it to happen
 
   If any of the points listed above do not work out, I will substitute with:
 * (5 points) Integrate user authentication

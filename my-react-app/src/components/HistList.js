@@ -23,11 +23,11 @@ const HistList = () => {
       {lists.length === 0 ? (
         <p>No lists available.</p>
       ) : (
-        <ul>
+        <ul className="flex flex-col gap-3 m-0 p-0">
           {lists.map((list) => (
-            <li key={list._id} className="hl-entry">
-              <h4>{list.language} {list.name}</h4>
-              <p>Difficulty: {list.difficulty}</p>
+            <li key={list._id} className="flex flex-col gap-1 border border-gray-300 p-3">
+              <h4 className="m-0 p-0 font-semibold">{list.language} {list.name}</h4>
+              <p className="m-0 p-0">Difficulty: {list.difficulty}</p>
             </li>
           ))}
         </ul>
