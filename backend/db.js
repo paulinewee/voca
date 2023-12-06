@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const mongoSanitize = require('mongo-sanitize');
 
-
 dotenv.config();
 
 //user
