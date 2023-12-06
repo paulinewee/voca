@@ -123,29 +123,29 @@ app.post('/api/register', async (req, res) => {
   }
 });
 
-app.post('/api/updateColor', async (req, res) => {
-  try {
-    const { color } = req.body;
+// app.post('/api/updateColor', async (req, res) => {
+//   try {
+//     const { color } = req.body;
 
-    console.log("hsfsere")
-    console.log(req.user)
-    // const userId = req.user._id; // Use req.user._id to identify the user
+//     console.log("hsfsere")
+//     console.log(req.user)
+//     // const userId = req.user._id; // Use req.user._id to identify the user
 
-    // Update the user's color property in the database
-    const updatedUser = await User.findByIdAndUpdate(userId, { color }, { new: true });
+//     // Update the user's color property in the database
+//     const updatedUser = await User.findByIdAndUpdate(userId, { color }, { new: true });
 
-    if (!updatedUser) {
-      // Handle the case where the user with the given ID is not found
-      return res.status(404).json({ success: false, error: 'User not found' });
-    }
+//     if (!updatedUser) {
+//       // Handle the case where the user with the given ID is not found
+//       return res.status(404).json({ success: false, error: 'User not found' });
+//     }
 
-    // Respond with a success message and the updated user
-    res.json({ success: true, user: updatedUser });
-  } catch (error) {
-    console.error('Error updating color:', error);
-    res.status(500).json({ success: false, error: 'Internal server error' });
-  }
-});
+//     // Respond with a success message and the updated user
+//     res.json({ success: true, user: updatedUser });
+//   } catch (error) {
+//     console.error('Error updating color:', error);
+//     res.status(500).json({ success: false, error: 'Internal server error' });
+//   }
+// });
 
 // Start the server
 app.listen(port, () => {
